@@ -3,7 +3,7 @@ class UserPolicy < ApplicationPolicy
     user.admin? || user.moderator?
   end
   def show?
-    record.try(:user) == user || user.admin? || user.moderator?
+    record == user || user.admin?
   end
   def update?
     record.try(:user) == user
