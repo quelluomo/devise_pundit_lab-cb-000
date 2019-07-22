@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
   def index?
-    user.admin? || user.moderator?
+    user.admin? #|| user.moderator?
   end
   def show?
     record == user || user.admin?
