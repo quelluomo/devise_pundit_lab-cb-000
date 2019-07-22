@@ -11,11 +11,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @user = authorize User.find(current_user.id)
-    else
-      flash[:alert] = "Access denied."
-    end
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
