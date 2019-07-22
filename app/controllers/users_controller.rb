@@ -6,8 +6,7 @@ class UsersController < ApplicationController
 
   def index
     if user_signed_in?
-    @user = User.find(params[:id])
-    authorize @user
+      @user = authorize User.find(current_user.id)
     end
   end
 
