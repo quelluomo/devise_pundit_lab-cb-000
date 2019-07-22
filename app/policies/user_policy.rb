@@ -6,7 +6,7 @@ class UserPolicy < ApplicationPolicy
     record == user || user.admin?
   end
   def update?
-    record.try(:user) == user
+    record == user || user.admin?
   end
   def destroy?
     user.admin? || record.try(:user) == user
